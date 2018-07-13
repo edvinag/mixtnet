@@ -24,7 +24,7 @@ class node:
         if power > 0.01:
             for c in self.connections:
                 plot(self, c, power)
-            self.power += power*0.5
+            self.power += power * 0.5
             if len(self.connections) > 0:
                 return [self.connections, power*0.5]
         else:
@@ -55,16 +55,8 @@ for n in nodes:
     for c in rnd.sample(subnodes, rnd.randint(1, 5)):
         n.connections.append([c, rnd.uniform(0.1, 0.7)])
 
-'''
-nodes[0].connections.append([nodes[1], 0.5])
-nodes[0].connections.append([nodes[3], 0.5])
-nodes[1].connections.append([nodes[2], 0.5])
-nodes[2].connections.append([nodes[0], 0.5])
-nodes[3].connections.append([nodes[4], 0.5])
-'''
-
 fig = plt.figure()
-for _ in range(10):
+for time in range(1000):
     plt.clf()
     toshoot = []
     toshoot.append(nodes[0].shoot(1))
